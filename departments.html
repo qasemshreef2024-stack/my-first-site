@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>قاسم — الموقع الشخصي</title>
+  <title>أقسام العيادة</title>
   <style>
     :root {
       --bg: #f7f8fa;
@@ -32,7 +32,7 @@
     }
 
     .container {
-      max-width: 760px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -119,95 +119,69 @@
     /* Sections */
     main {
       padding: 40px 0 64px;
-      display: grid;
-      gap: 24px;
     }
 
-    section.card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px 30px;
-    }
-
-    section.card h2 {
-      font-size: 1.35rem;
+    .section-title {
+      font-size: 1.6rem;
       color: var(--accent);
-      margin-bottom: 14px;
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    section.card h2::before {
+    .section-title::before {
       content: "";
       width: 6px;
-      height: 22px;
+      height: 26px;
       background: var(--accent);
       border-radius: 3px;
       display: inline-block;
     }
 
-    section.card p {
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
-
-    /* Contact */
-    .contact-list {
-      list-style: none;
+    /* Departments grid */
+    .departments-grid {
       display: grid;
-      gap: 12px;
-      margin-top: 4px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
     }
 
-    .contact-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--accent-soft);
+    .dept-card {
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 16px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 24px;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .contact-list li:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
+    .dept-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
     }
 
-    .contact-list .icon {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
+    .dept-card .dept-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
     }
 
-    .contact-list a {
+    .dept-card h3 {
+      font-size: 1.15rem;
       color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      direction: ltr;
-      unicode-bidi: plaintext;
+      margin-bottom: 8px;
     }
 
-    .contact-list a:hover {
-      color: var(--accent);
-    }
-
-    .contact-list .label {
-      font-size: 0.85rem;
+    .dept-card p {
       color: var(--muted);
-      display: block;
-      font-weight: 400;
+      font-size: 0.98rem;
     }
 
     /* Footer */
@@ -221,7 +195,7 @@
 
     @media (max-width: 520px) {
       header { padding: 56px 0 48px; }
-      section.card { padding: 22px 20px; }
+      .dept-card { padding: 22px 20px; }
     }
   </style>
 </head>
@@ -229,15 +203,15 @@
 
   <nav class="navbar">
     <div class="container nav-inner">
-      <a href="index.html" class="active">الرئيسية</a>
-      <a href="departments.html">الأقسام</a>
+      <a href="index.html">الرئيسية</a>
+      <a href="departments.html" class="active">الأقسام</a>
     </div>
   </nav>
 
   <header>
     <div class="container">
       <div class="avatar">
-        <img src="logo.jpg" alt="شعار قاسم الشخصي">
+        <img src="logo.jpg" alt="شعار العيادة">
       </div>
       <h1>قاسم</h1>
       <p>مطوّر ويب وشغوف بالتكنولوجيا</p>
@@ -245,42 +219,45 @@
   </header>
 
   <main class="container">
-    <section class="card" id="about">
-      <h2>نبذة عني</h2>
-      <p>
-        أنا قاسم، أعمل في تطوير الويب وأحب بناء مواقع وتطبيقات بسيطة وجميلة.
-        أستمتع بتعلّم التقنيات الجديدة ومشاركة المعرفة مع الآخرين، وأسعى دائماً
-        لكتابة كود نظيف وتجربة مستخدم مريحة.
-      </p>
-    </section>
+    <h2 class="section-title">أقسام العيادة</h2>
 
-    <section class="card" id="contact">
-      <h2>تواصل معي</h2>
-      <p>يسعدني التواصل معكم عبر أي من الوسائل التالية:</p>
-      <ul class="contact-list">
-        <li>
-          <span class="icon">✉</span>
-          <span>
-            <span class="label">البريد الإلكتروني</span>
-            <a href="mailto:qasim@example.com">qasim@example.com</a>
-          </span>
-        </li>
-        <li>
-          <span class="icon">☎</span>
-          <span>
-            <span class="label">الهاتف</span>
-            <a href="tel:+966500000000" dir="ltr">+966 50 000 0000</a>
-          </span>
-        </li>
-        <li>
-          <span class="icon">⌂</span>
-          <span>
-            <span class="label">الموقع</span>
-            <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-          </span>
-        </li>
-      </ul>
-    </section>
+    <div class="departments-grid">
+      <article class="dept-card">
+        <div class="dept-icon">🦷</div>
+        <h3>تقويم الأسنان</h3>
+        <p>تقويم الأسنان المائلة والمتداخلة باستخدام أجهزة التقويم الشفاف الحديثة للحصول على ابتسامة متناسقة.</p>
+      </article>
+
+      <article class="dept-card">
+        <div class="dept-icon">🪥</div>
+        <h3>زراعة الأسنان</h3>
+        <p>تعويض الأسنان المفقودة بزراعات عالية الجودة تعيد وظيفة المضغ والمظهر الطبيعي لابتسامتك.</p>
+      </article>
+
+      <article class="dept-card">
+        <div class="dept-icon">✨</div>
+        <h3>تجميل الأسنان</h3>
+        <p>ابتسامة هوليوود مع القشور الخزفية وتقويم الشفاف وتقنيات تجميلية آمنة تُبرز جمالك.</p>
+      </article>
+
+      <article class="dept-card">
+        <div class="dept-icon">🩺</div>
+        <h3>علاج الجذور</h3>
+        <p>علاج القنوات العصبية بدقة واحترافية لإنقاذ الأسنان المصابة والتخلص من الألم بأقل تدخل ممكن.</p>
+      </article>
+
+      <article class="dept-card">
+        <div class="dept-icon">🧒</div>
+        <h3>أسنان الأطفال</h3>
+        <p>رعاية لطيفة ومخصصة للأطفال في أجواء مريحة وودودة لحثهم على عادات نظافة فم صحيحة.</p>
+      </article>
+
+      <article class="dept-card">
+        <div class="dept-icon">😁</div>
+        <h3>تنظيف وتبييض الأسنان</h3>
+        <p>إزالة الجير والتصبغات وتبييض احترافي آمن يمنح أسنانك نظارة وإشراقة تدوم طويلاً.</p>
+      </article>
+    </div>
   </main>
 
   <footer>
